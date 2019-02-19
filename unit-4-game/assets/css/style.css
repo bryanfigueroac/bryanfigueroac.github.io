@@ -1,0 +1,47 @@
+
+
+.crystals{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.crystal{
+	border:1px solid green;
+	height:200px;
+	width: 200px;
+	border-radius: 4px;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+	transition: box-shadow 1s, transform 2s;
+}
+
+.crystalCollector {
+padding: 20px;
+color: orange;
+background-color: red;
+margin-right: 72%;
+}
+
+.rules {
+    padding: 20px;
+    color: green;
+    background-color: tan;
+    margin-right: 72%;
+    }
+.result {
+        padding: 20px;
+        color: green;
+        background-color:lightskyblue;
+        margin-right: 72%;
+        }
+
+.previous {
+        padding: 20px;
+        padding-bottom: 40px;
+        color:black;
+        background-color:lightskyblue;
+        margin-right: 72%;
+        }
+img{
+	width:50px;
+}

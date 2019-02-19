@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title> Rupee Game</title>
+  <!-- Link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+  <!-- AND/OR YOUR OWN CSS -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+
+</head>
+
+<body background="assets/images/background.jpg">
+    <div class="crystalCollector">
+    <h1 class="display-4">Rupee Collector</h1>
+      </div>
+      <br>
+
+      <div class="rules">
+        You will be given a random number at the start of the game
+        <br><br>
+        There are four rupees below. By clicking on the rupee, you will add a specific amount of points to your total score.
+        <br><br>
+        You win by matching the total score to a random number. You lose the game if your total reaches over the random number.
+        <br><br>
+        The value of each rupee is hidden from you until you click on it.
+        <br><br>
+        Each time the game starts, the numbers will be reset on each rupee
+      </div>
+      <br>
+    <div class="result">
+    <p id="result"></p>
+    </div>
+
+    <div class="crystals">
+
+    </div>
+    <br>
+  <div class="previous">
+	<p id="previous"></p>
+
+	<p id="win"></p>
+  <p id="lost"></p>
+  </div>
+   <br><br>
+  <script type="text/javascript" src="assets/javascript/game.js"></script>
+  <embed src="hyrule.mp3" autostart="true" loop="true" type="">
+</body>
+
+</html>
