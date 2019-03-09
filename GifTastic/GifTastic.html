@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>GifTastic</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row text-center tag-row" id="tags"></div>
+        <div class="row text-center category-row">
+          <input type="" name="" id="category"><button class="btn btn-secondary" id="addTag">Add Animal</button>
+        </div>
+      </div>
+    
+      <div class="container">
+        <div id="photo"></div>
+      </div>
+
+  <div id="gifs-appear-here">
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+var tags = ["dog","cat", "dolphin", "lion", "rhino", "elephant", "rat", "tiger", "skunk", "shark", "flamingo", "goldfish", "monkey", "bunny", "turtle", "crocodile"];
+
+// Function for displaying movie data
+  function renderButtons() {
+
+    $("#tags").empty();
+
+    for (var i = 0; i < tags.length; i++) {
+        
+      $("#tags").append('<button class="tag-buttons btn btn-primary">' + tags[i] + '</button>');
+    }      
+
+  } 
+  
+// Add tags function // 
+
+$(document).on('click', '#addTag', function(event) {
+
+  event.preventDefault();
+
+  var newTag = $("#category").val().trim();
+  tags.push(newTag);
+
+  $("#tags").append('<button class="tag-buttons btn btn-primary">' + newTag + '</button>');
+
+});
+
+// Tag button function //
+
+$(document).on('click', '.tag-buttons', function(event) {
+
+  // Keeps page from reloading //
+  event.preventDefault();
+  
+  var type = this.innerText;
+  console.log(this.innerText);
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + window.encodeURI(type) + "&limit=10&api_key=dc6zaTOxFJmzC";
+  
+
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).done(function(response) {
+      
+    for (var i = 0; i < response.data.length; i++) {
+
+      $("#photo").append('<img class="gif" src="' + response.data[i].images.fixed_height_still.url + '">');
+      
+    }  
+  });
+
+  $("#photo").empty();
+
+});
+renderButtons();
+
+
+$('body').on('click', '.gif', function() {
+    var src = $(this).attr("src");
+  if($(this).hasClass('playing')){
+     //stop
+     $(this).attr('src', src.replace(/\.gif/i, "_s.gif"))
+     $(this).removeClass('playing');
+  } else {
+    //play
+    $(this).addClass('playing');
+    $(this).attr('src', src.replace(/\_s.gif/i, ".gif"))
+  }
+});
+  </script>
+
+</body>
+
+</html>
